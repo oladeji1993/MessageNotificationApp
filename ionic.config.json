@@ -1,5 +1,7 @@
 {
   "name": "appNt",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

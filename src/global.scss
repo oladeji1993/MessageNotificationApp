@@ -24,3 +24,53 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.my-custom-class .action-sheet-group {
+    background: #e5e5e5;
+    padding:0px;
+    margin: 0px;
+    font-size:10px;
+    text-align: none;
+  }
+
+
+
+  .fab{
+    position: absolute;
+    top:88%;
+    --background:#057074
+  }
+
+  .stroll-resp {
+    --overflow: hidden;
+    display: grid;
+}
+
+.scroll {
+  overflow: auto;
+  height: 100%;
+  padding-bottom: 100px;
+}
+
+.my-custom-class {
+  --height: 200px!important;
+  --width: 70%!important;
+}
+
+.logout-custom{
+  // margin-top:40%;
+  padding-top:150%;
+    
+  --height: 200px!important;
+  --width: 100%!important;
+}
+
+.logout-custom .modal-wrapper{
+    border-radius: 10px;
+  }
+
+
+.my-custom-class .modal-wrapper {
+  border-radius: 10px;
+}

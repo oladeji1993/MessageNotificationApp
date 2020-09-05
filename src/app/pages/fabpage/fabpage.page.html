@@ -1,0 +1,53 @@
+<ion-content class="stroll-resp">
+  <div class="background">
+    <div class="content">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="operation-page"></ion-back-button>
+      </ion-buttons>
+      <h5>Business Notification</h5>
+      <ion-button (click)="Logout()" fill="clear"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+
+      <div class="content1">
+        <h4>Active Notification</h4>
+        <p>Accept bill payment notification</p>
+      </div>
+    
+      <div class="others">
+        <h2>Viewed By</h2>
+        <p>1</p>
+      </div>
+
+      <div class="percent">
+        <h2>100.00%</h2>
+      </div>
+
+      <div class="dpart">
+        <p><ion-icon name="person"></ion-icon>    30004</p>
+        <p><ion-icon name="share-social-sharp"></ion-icon>    30004</p>
+        <p><ion-icon name="send"></ion-icon>  30004</p>
+      </div>
+
+      <div class="main stroll" scrollY="true">
+        <h2>NEW NOTIFICATION</h2>
+        
+        <div class="input">
+          <ion-item>
+            <ion-label position="stacked">Notification Title</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label position="stacked">Notification Message</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+         <ion-button><ion-icon class="special" name="add-circle-outline"></ion-icon> Add Image</ion-button>
+
+        </div>
+        <div class="test">
+          <p><ion-checkbox checked="false"> </ion-checkbox> Test Notification</p>
+        </div>
+        <ion-button expand="block">Confirm Identity</ion-button>
+      </div> 
+    </div>
+  </div>
+</ion-content>

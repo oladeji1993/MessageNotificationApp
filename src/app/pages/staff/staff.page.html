@@ -1,0 +1,48 @@
+<ion-content>
+  <div class="background">
+    <div class="content">
+      <h5>Business Notification</h5>
+      <ion-button (click)="Logout()" fill="clear"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+
+      <div class="content1">
+        <h4>Active Notification</h4>
+        <p>Accept bill payment notification</p>
+      </div>
+    
+      <div class="others">
+        <h2>Viewed By</h2>
+        <p>1</p>
+      </div>
+
+      <div class="percent">
+        <h2>100.00%</h2>
+      </div>
+
+      <div class="dpart">
+        <p><ion-icon name="person"></ion-icon>    30004</p>
+        <p><ion-icon name="share-social-sharp"></ion-icon>    30004</p>
+        <p><ion-icon name="send"></ion-icon>  30004</p>
+      </div>
+
+      <div class="main stroll" scrollY="true">
+        <h2>STAFF NOTIFICATION HISTORY</h2>
+  
+  
+        <ion-card>
+          <ion-card-content class="card">
+            <ion-icon name="notifications"></ion-icon>
+            <p>Coming Soon</p>
+          </ion-card-content>
+        </ion-card>
+      </div>   
+      
+      
+    </div>
+
+    <ion-fab (click)="gotoNoti()" class="fab" horizontal="end" slot="fixed">
+      <ion-fab-button>
+       <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>

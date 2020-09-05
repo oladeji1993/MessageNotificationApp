@@ -1,0 +1,14 @@
+<div class="header">
+  <h5>Forgot PIN</h5>
+  <small *ngIf="errorMsg" style="color: red;">{{errorMsg}}</small>
+
+  <ion-item lines="none">
+    <ion-input type="password" [(ngModel)]="forgot" (ionChange)="forgotChange($event)" placeholder="Enter password"><ion-icon name="lock-closed"></ion-icon></ion-input>
+  </ion-item>
+  <ion-button class="btn" (click)="reset()" fill="clear"> Continue <ion-icon name="chevron-forward"></ion-icon></ion-button>
+
+  
+</div>
+
+<ion-button (click)= "dismiss()" class="cancel" fill="clear"> Cancel </ion-button>
+

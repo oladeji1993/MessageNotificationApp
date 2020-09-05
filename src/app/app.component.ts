@@ -1,3 +1,4 @@
+import { LogoutComponent } from './logout/logout/logout.component';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
@@ -13,7 +14,8 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public logoutComponent: LogoutComponent,
   ) {
     this.initializeApp();
   }

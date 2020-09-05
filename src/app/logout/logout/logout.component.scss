@@ -1,0 +1,28 @@
+.logout{
+    margin-right:10px;
+    p{
+        font-size:14px;
+        border-bottom:1px solid gray;
+        padding-bottom:15px;
+    }
+
+    ion-icon{
+        font-size:18px;
+        padding:0px 10px;
+    }
+
+    .main{
+        padding-top:none;
+        width:45%;
+        ion-button{
+            display:flex;
+            border-bottom:none;
+            font-size:14px;
+            color:#057074;
+           
+        }
+        ion-icon{
+            font-size:13px;
+        }
+    }
+}

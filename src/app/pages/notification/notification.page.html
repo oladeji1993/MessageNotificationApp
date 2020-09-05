@@ -1,0 +1,101 @@
+<ion-content class="stroll-resp">
+  <div class="background">
+    <div class="content">
+      <h5>Business Notification</h5>
+      <ion-button (click)="Logout()" fill="clear"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+
+      <div class="content1">
+        <h4>Active Notification</h4>
+        <p>Accept bill payment notification</p>
+      </div>
+    
+      <div class="others">
+        <h2>Viewed By</h2>
+        <p>1</p>
+      </div>
+
+      <div class="percent">
+        <h2>100.00%</h2>
+      </div>
+
+      <div class="dpart">
+        <ion-spinner *ngIf="!catchData" color="light" name="lines"></ion-spinner>
+        <p *ngIf="catchData" ><ion-icon name="person"></ion-icon>    30004</p>
+        <ion-spinner *ngIf="!catchData" color="light" name="lines"></ion-spinner>
+        <p  *ngIf="catchData"><ion-icon name="share-social-sharp"></ion-icon>    30004</p>
+        <ion-spinner *ngIf="!catchData" color="light" name="lines"></ion-spinner>
+        <p *ngIf="catchData"><ion-icon  name="send"></ion-icon>  30004</p>
+      </div>
+
+      <div class="main scroll" scrollY="true">
+        <h2>GENERAL NOTIFICATION HISTORY</h2>
+        <ion-card>
+          <ion-card-content class="card">
+            <ion-icon name="notifications"></ion-icon>
+            <p>ACCEPT BILL PAYEMENT REMINDER NOTIFICATION</p>
+            <p class="num"><ion-icon name="checkmark-outline"></ion-icon>1</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content class="card">
+            <ion-icon name="notifications"></ion-icon>
+            <p>ACCEPT BILL PAYEMENT REMINDER NOTIFICATION</p>
+            <p class="num"><ion-icon name="checkmark-outline"></ion-icon>1</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content class="card">
+            <ion-icon name="notifications"></ion-icon>
+            <p>ACCEPT BILL PAYEMENT REMINDER NOTIFICATION</p>
+            <p class="num"><ion-icon name="checkmark-outline"></ion-icon>1</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content class="card">
+            <ion-icon name="notifications"></ion-icon>
+            <p>ACCEPT BILL PAYEMENT REMINDER NOTIFICATION</p>
+            <p class="num"><ion-icon name="checkmark-outline"></ion-icon>1</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content class="card">
+            <ion-icon name="notifications"></ion-icon>
+            <p>ACCEPT BILL PAYEMENT REMINDER NOTIFICATION</p>
+            <p class="num"><ion-icon name="checkmark-outline"></ion-icon>1</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content class="card">
+            <ion-icon name="notifications"></ion-icon>
+            <p>ACCEPT BILL PAYEMENT REMINDER NOTIFICATION</p>
+            <p class="num"><ion-icon name="checkmark-outline"></ion-icon>1</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content class="card">
+            <ion-icon name="notifications"></ion-icon>
+            <p>ACCEPT BILL PAYEMENT REMINDER NOTIFICATION</p>
+            <p class="num"><ion-icon name="checkmark-outline"></ion-icon>1</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      
+    </div>
+    
+
+    
+    <ion-fab class="fab" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="gotoNoti()">
+       <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+
+  
+</ion-content>

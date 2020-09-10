@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'fabpage',
     loadChildren: () => import('./pages/fabpage/fabpage.module').then( m => m.FabpagePageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
 ];
 
 @NgModule({

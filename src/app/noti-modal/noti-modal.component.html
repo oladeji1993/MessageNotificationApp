@@ -1,5 +1,5 @@
 <div class="header">
-  <h5>Forgot PIN</h5>
+  <h5 *ngIf="modalHeader">{{modalHeader}}</h5>
   <small *ngIf="errorMsg" style="color: red;">{{errorMsg}}</small>
 
   <ion-item lines="none">
@@ -10,5 +10,5 @@
   
 </div>
 
-<ion-button (click)= "dismiss()" class="cancel" fill="clear"> Cancel </ion-button>
+<ion-button (click)= "dismiss(sharedData.location)" class="cancel" fill="clear"> Cancel </ion-button>
 

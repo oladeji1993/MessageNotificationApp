@@ -1,9 +1,10 @@
 import { SharedData } from './../../Business/shared';
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { NotiModalComponent } from 'src/app/noti-modal/noti-modal.component';
 import { Storage } from '@ionic/storage';
+
 
 
 
@@ -15,26 +16,28 @@ import { Storage } from '@ionic/storage';
 export class HomePage implements OnInit {
 
   pin = '';
+  confirmPin;
   auth;
   forgot;
   pass;
+  forgotPin;
+  welcomeMsg;
+  errorMsg;
+  counter = 0;
   constructor( private alertController: AlertController, 
     private router: Router,
     private modalController: ModalController,
     private storage: Storage,
-    public sharedData: SharedData
-  ) {
+    public sharedData: SharedData,
+    public navCtrl: NavController,
+  ) {} 
 
-      this.init();
-    }
-
+  
   ngOnInit() {
   }
-
+  
   ionViewWillEnter() {
-    this.pin = '';
-    this.auth = localStorage.getItem('pin');
-    console.log(this.auth);
+    this.init();
   }
 
   goToLogin(){
@@ -42,16 +45,30 @@ export class HomePage implements OnInit {
   }
 
   key(val) {
-    if ( this.pin.length < 4) {
+    if (this.pin.length < 4) {
       this.pin = this.pin + val;
       console.log(this.pin);
-      if ( this.pin.length === 4) {
+      if (this.pin.length === 4) {
         if (!this.auth) {
-          localStorage.setItem('pin', this.pin);
-          this.goToLogin();
+          this.counter = this.counter + 1;
+          if(this.counter < 2) {
+            this.confirmPin = this.pin;
+            this.pin = '';
+            this.sharedData.createPin = 'CONFIRM PIN'
+          } else if (this.pin === this.confirmPin) {
+            this.storage.set('password', this.pin).then(res => {
+              console.log("Password set successfully");
+              this.goToLogin();
+            })
+          } else if(this.pin !== this.confirmPin) {
+            this.counter = this.counter - 1;
+            this.pin = '';
+            console.log("Pin does not match");
+          }
         } else if (this.auth && this.auth === this.pin) {
           this.goToLogin();
         } else {
+          this.sharedData.uniquePin = 'Invalid PIN';
           console.log('Invalid Pin');
         }
       }
@@ -72,31 +89,46 @@ export class HomePage implements OnInit {
     console.log(this.pin);
   }
 
-  async forgotModal() {
+  async lauchModal(option) {
+    // if(this.sharedData.forgotPin){
+    //   this.later()
+    // }
+    this.sharedData.location = null;
+    this.sharedData.modalHeader = option;
     const modal = await this.modalController.create({
       component: NotiModalComponent ,
       cssClass: 'my-custom-class',
-      backdropDismiss: false
+      backdropDismiss: false,
     });
     return await modal.present();
   }
 
-  init() {
-    this.storage.get('password').then(pass => {
-      if(pass) {
-        console.log(pass)
-      } else {
-        this.sharedData.uniquePin = 'Enter unique Pin';
-        console.log(this.sharedData.uniquePin)
-        this.forgotModal();
-      }
-    })
-    // if(!this.pass) {
-    //   this.storage.get('password');
-    //   this.router.navigate(['home']);
-    // } else{
-    //   console.log('invalid pin')
-    // }
 
-  }
+  init() {
+    this.pin = '';
+    this.auth = '',
+    this.storage.get('password').then(pin => {
+      if(pin && !this.sharedData.location) {
+        this.auth = pin;
+        console.log(pin)
+        this.sharedData.createPin = 'Enter PIN'
+        this.sharedData.uniquePin = 'Enter 4 unique Pin';
+        this.sharedData.forgotPin = 'Forgot PIN';
+      } else {
+        this.sharedData.createPin = 'CREATE PIN'
+        this.sharedData.uniquePin = 'Enter PIN';
+        this.sharedData.forgotPin = 'Later';
+        console.log(this.sharedData.uniquePin);
+        if(!this.sharedData.location) {
+          this.lauchModal(null);
+        }
+       }
+     });
+     }
+
+
+    later(){
+      this.navCtrl.back();
+
+    }
 }

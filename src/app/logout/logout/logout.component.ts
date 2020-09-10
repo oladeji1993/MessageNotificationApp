@@ -1,3 +1,4 @@
+import { SharedData } from './../../../Business/shared';
 import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -13,6 +14,7 @@ export class LogoutComponent implements OnInit {
     private modalController: ModalController,
     private router: Router,
     private alertController: AlertController,
+    public sharedData: SharedData
   ) { }
 
   ngOnInit() {}
@@ -31,6 +33,7 @@ export class LogoutComponent implements OnInit {
           handler: (blah) => {
             this.router.navigate(['home']);
             this.modalController.dismiss();
+            this.sharedData.location = null;
           }
         },
         {
@@ -43,6 +46,13 @@ export class LogoutComponent implements OnInit {
         }]
       });
       await alert.present();
+  }
+
+
+
+  goToSettings(){
+    this.router.navigate(['settings']);
+    this.modalController.dismiss();
   }
 
 }

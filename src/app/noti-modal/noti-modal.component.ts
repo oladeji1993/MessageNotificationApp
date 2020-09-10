@@ -2,7 +2,7 @@ import { SharedData } from './../../Business/shared';
 import { Constants } from './../../Business/constant';
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,44 +15,64 @@ export class NotiModalComponent implements OnInit {
   forgot;
   appPassword;
   errorMsg;
+  welcomeMsg;
+  modalHeader;
   constructor(
     private storage: Storage,
     private modalController: ModalController,
     private router: Router,
     private constants: Constants,
-    public sharedData: SharedData
+    public sharedData: SharedData,
+    public navCtrl: NavController
     ) {
       console.log(this.constants.appPassword());
       this.appPassword = this.constants.appPassword();
-      // this.storage.clear()
+      // this.storage.clear();
+      this.setHeader();
     }
 
   ngOnInit() {}
+
+  setHeader() {
+    console.log(this.sharedData.modalHeader)
+    if(this.sharedData.modalHeader){
+      this.modalHeader = "CHANGE PIN"
+      // this.storage.clear();
+    }
+    if(!this.sharedData.modalHeader) {
+      this.modalHeader = "WELCOME"
+    } else if (this.sharedData.modalHeader === 'forgot-password') {
+      this.modalHeader = "Forgot Password"
+    }
+  }
 
   reset() {
     if(this.forgot === this.appPassword) {
       console.log("Correct");
       this.modalController.dismiss();
-      this.sharedData.uniquePin = 'Enter your 4 digits pin';
     } else {
       console.log("Ode");
-      this.errorMsg = "Incorrect Password";
+      this.sharedData.uniquePin = 'Invalid PIN';
     }
-
-    // const saveItem = this.forgot;
-    // console.log(this.forgot)
-    // this.storage.set('password', this.forgot);
-    // this.router.navigate(['']);
   }
 
   forgotChange(){
     this.errorMsg = null;
   }
 
-  dismiss() {
+  doDismiss() {
     this.modalController.dismiss({
       dismissed: true
     });
-}
+  }
+
+  dismiss(location) {
+    if(location && location === 'settings') {
+      this.navCtrl.back();
+      this.doDismiss()
+    } else {
+      this.doDismiss();
+    }
+  }
 }
 

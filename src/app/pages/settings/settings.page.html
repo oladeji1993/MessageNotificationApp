@@ -1,0 +1,45 @@
+<ion-content class="stroll-resp">
+  <div class="background">
+    <div class="content">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="operation-page"></ion-back-button>
+      </ion-buttons>
+      <h5>Business Notification</h5>
+      <ion-button (click)="Logout()" fill="clear"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+
+      <div class="content1">
+        <h4>Active Notification</h4>
+        <p>Accept bill payment notification</p>
+      </div>
+    
+      <div class="others">
+        <h2>Viewed By</h2>
+        <p>1</p>
+      </div>
+
+      <div class="percent">
+        <h2>100.00%</h2>
+      </div>
+
+      <div class="dpart">
+        <p><ion-icon name="person"></ion-icon>    30004</p>
+        <p><ion-icon name="share-social-sharp"></ion-icon>    30004</p>
+        <p><ion-icon name="send"></ion-icon>  30004</p>
+      </div>
+
+      <div class="main stroll" scrollY="true">
+        <h2>SETTINGS</h2>
+        
+        <ion-card class="change-pin">
+          <ion-card-content>
+            <ion-button expand="block" fill="outline" (click)="resetPin()">
+              <ion-icon name="lock-closed"></ion-icon>
+              <p>CHANGE PIN</p>
+            </ion-button>  
+          </ion-card-content>
+        </ion-card>
+
+      </div> 
+    </div>
+  </div>
+</ion-content>

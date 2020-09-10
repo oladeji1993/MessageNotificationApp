@@ -1,7 +1,7 @@
 <ion-content>
   <div class="pin">
-    <h5>Enter PIN</h5>
-    <p *ngIf="sharedData.uniquePin">{{sharedData.uniquePin}}</p>
+    <h5 *ngIf="sharedData.createPin">{{sharedData.createPin}}</h5>
+    <p *ngIf="sharedData.uniquePin"  style="color: red">{{sharedData.uniquePin}}</p>
 
   </div>
 
@@ -16,7 +16,7 @@
   <ion-card>
     <div class="calculator-grid">
       <ion-button fill="clear" shape="round" (click)="key('1')">1</ion-button>
-      <ion-button  fill="clear" shape="round"(click)="key('2')">2</ion-button>
+      <ion-button fill="clear" shape="round"  (click)="key('2')">2</ion-button>
       <ion-button fill="clear" shape="round" (click)="key('3')">3</ion-button>
       <ion-button fill="clear" shape="round" (click)="key('4')">4</ion-button>
       <ion-button fill="clear" shape="round" (click)="key('5')">5</ion-button>
@@ -30,7 +30,8 @@
       <ion-button fill="clear" shape="round"><span class="yellow">ok</span></ion-button>
   </div>
   <div class="btn">
-    <ion-button (click)="forgotModal()" fill="clear">Forgot PIN</ion-button>
+    <ion-button (click)="lauchModal('forgot-password')" fill="clear" *ngIf="!sharedData.location">Forgot PIN</ion-button>
+    <ion-button (click)="later()" fill="clear" *ngIf="sharedData.location">Later</ion-button>
   </div>
 </ion-card>
 </ion-content>
